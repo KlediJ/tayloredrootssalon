@@ -73,10 +73,10 @@ function Gallery() {
   }, [active]);
 
   return (
-    <section className="space-y-6 rounded-2xl border border-neutral-200/80 bg-white/90 p-6 shadow-lg backdrop-blur">
+    <section className="space-y-6 rounded-2xl border border-emerald-200/80 bg-white/90 p-6 shadow-lg backdrop-blur">
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+          <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
             Lookbook
           </p>
           <h2 className="text-2xl font-semibold text-neutral-900">
@@ -93,8 +93,8 @@ function Gallery() {
               onClick={() => setActive(filter.value)}
               className={`rounded-full border px-3 py-2 text-xs font-semibold transition ${
                 active === filter.value
-                  ? "border-neutral-900 bg-neutral-900 text-white"
-                  : "border-neutral-300 bg-white text-neutral-700 hover:border-neutral-500"
+                  ? "border-emerald-900 bg-emerald-900 text-white"
+                  : "border-neutral-300 bg-white text-neutral-700 hover:border-emerald-400"
               }`}
             >
               {filter.label}
@@ -123,7 +123,7 @@ function Gallery() {
                 <h3 className="text-base font-semibold text-neutral-900">
                   {look.title}
                 </h3>
-                <span className="rounded-full bg-neutral-900 px-2.5 py-1 text-[11px] font-semibold text-white">
+                <span className="rounded-full bg-emerald-900 px-2.5 py-1 text-[11px] font-semibold text-white">
                   {look.category}
                 </span>
               </div>

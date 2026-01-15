@@ -154,22 +154,24 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-      <div className="w-full max-w-2xl rounded-2xl border border-neutral-800 bg-neutral-950 p-6 text-white shadow-2xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+      <div className="w-full max-w-2xl rounded-2xl border border-emerald-900/10 bg-stone-50 p-6 text-neutral-900 shadow-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
               Book the chair
             </p>
-            <h3 className="text-2xl font-semibold">Lock in your session</h3>
-            <p className="text-sm text-neutral-300">
+            <h3 className="text-2xl font-semibold text-emerald-950">
+              Lock in your session
+            </h3>
+            <p className="text-sm text-neutral-600">
               We’ll include your preview so the stylist sees your target look.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-white/10 px-3 py-1 text-xs font-semibold text-neutral-200 hover:border-white/30"
+            className="rounded-full border border-emerald-900/20 px-3 py-1 text-xs font-semibold text-emerald-900 hover:border-emerald-900/40"
           >
             Close
           </button>
@@ -177,30 +179,30 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
 
         <form onSubmit={handleSubmit} className="mt-6 grid gap-4 md:grid-cols-2">
           <label className="space-y-2">
-            <span className="text-sm font-semibold text-neutral-100">Name</span>
+            <span className="text-sm font-semibold text-neutral-800">Name</span>
             <input
               type="text"
               required
               value={form.name}
               onChange={(e) => update("name", e.target.value)}
-              className="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
+              className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-emerald-500 focus:outline-none"
             />
           </label>
 
           <label className="space-y-2">
-            <span className="text-sm font-semibold text-neutral-100">Phone</span>
+            <span className="text-sm font-semibold text-neutral-800">Phone</span>
             <input
               type="tel"
               required
               value={form.phone}
               onChange={(e) => update("phone", e.target.value)}
-              className="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
+              className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-emerald-500 focus:outline-none"
             />
           </label>
 
           <div className="md:col-span-2 space-y-2">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-semibold text-neutral-100">
+              <p className="text-sm font-semibold text-neutral-800">
                 Available slots (optional)
               </p>
               {slotsLoading && (
@@ -208,17 +210,17 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
               )}
             </div>
             {slotError && (
-              <p className="rounded-lg bg-red-500/10 px-3 py-2 text-sm text-red-200">
-                {slotError}
-              </p>
-            )}
+                <p className="rounded-lg bg-red-500/10 px-3 py-2 text-sm text-red-700">
+                  {slotError}
+                </p>
+              )}
             <div className="grid gap-3 md:grid-cols-2">
               {groupedSlots.map(({ day, slots: daySlots }) => (
                 <div
                   key={day}
-                  className="rounded-lg border border-neutral-800 bg-neutral-900/70 p-3"
+                  className="rounded-lg border border-emerald-900/10 bg-white p-3"
                 >
-                  <div className="flex items-center justify-between text-xs font-semibold text-neutral-200">
+                  <div className="flex items-center justify-between text-xs font-semibold text-neutral-700">
                     <span>
                       {new Date(day).toLocaleDateString(undefined, {
                         weekday: "short",
@@ -226,7 +228,7 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
                         day: "numeric",
                       })}
                     </span>
-                    <span className="text-neutral-400">
+                    <span className="text-neutral-500">
                       {daySlots.length} slots
                     </span>
                   </div>
@@ -239,8 +241,8 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
                         onClick={() => handleSlotSelect(slot)}
                         className={`rounded-lg border px-3 py-2 text-left text-sm transition ${
                           selectedSlot === slot.start
-                            ? "border-white bg-white/10 text-white"
-                            : "border-neutral-700 bg-neutral-900 text-neutral-100 hover:border-neutral-500"
+                            ? "border-emerald-900 bg-emerald-900 text-white"
+                            : "border-neutral-300 bg-white text-neutral-700 hover:border-emerald-400"
                         }`}
                       >
                         {new Date(slot.start).toLocaleTimeString(undefined, {
@@ -258,7 +260,7 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
                 </div>
               ))}
               {!slotsLoading && !slotError && slots.length === 0 && (
-                <p className="text-sm text-neutral-400">
+                <p className="text-sm text-neutral-500">
                   No slots published yet. Enter your preferred window below.
                 </p>
               )}
@@ -266,7 +268,7 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
           </div>
 
           <label className="space-y-2 md:col-span-2">
-            <span className="text-sm font-semibold text-neutral-100">
+            <span className="text-sm font-semibold text-neutral-800">
               Preferred time window
             </span>
             <input
@@ -275,12 +277,12 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
               placeholder="e.g., Weekday mornings, or Sat 10a-2p"
               value={form.window}
               onChange={(e) => update("window", e.target.value)}
-              className="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
+              className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-emerald-500 focus:outline-none"
             />
           </label>
 
           <label className="space-y-2 md:col-span-2">
-            <span className="text-sm font-semibold text-neutral-100">
+            <span className="text-sm font-semibold text-neutral-800">
               Notes for your stylist
             </span>
             <textarea
@@ -288,16 +290,16 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
               value={form.notes}
               onChange={(e) => update("notes", e.target.value)}
               placeholder="Maintenance level, budget, hair history, anything we should know."
-              className="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
+              className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-emerald-500 focus:outline-none"
             />
           </label>
 
           {selectedLook && (
             <div className="md:col-span-2">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+              <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
                 Attached preview
               </p>
-              <div className="mt-2 overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 p-3">
+              <div className="mt-2 overflow-hidden rounded-xl border border-emerald-900/10 bg-white p-3">
                 <img
                   src={`data:image/png;base64,${selectedLook}`}
                   alt="Selected look"
@@ -309,24 +311,24 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
 
           <div className="md:col-span-2 flex items-center justify-between pt-2">
             {sent ? (
-              <p className="rounded-full bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-200">
+              <p className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-900">
                 Request captured. We’ll reach out to confirm.
               </p>
             ) : (
-              <p className="text-xs text-neutral-400">
+              <p className="text-xs text-neutral-500">
                 We’ll route this to the salon booking channel with your preview.
               </p>
             )}
             <button
               type="submit"
               disabled={submitting}
-              className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-neutral-950 shadow-sm transition hover:bg-neutral-100"
+              className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
             >
               {submitting ? "Sending..." : "Send request"}
             </button>
           </div>
           {error && (
-            <p className="md:col-span-2 rounded-lg bg-red-500/10 px-3 py-2 text-sm text-red-200">
+            <p className="md:col-span-2 rounded-lg bg-red-500/10 px-3 py-2 text-sm text-red-700">
               {error}
             </p>
           )}

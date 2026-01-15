@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tailored Roots",
-  description: "Preview the look, book with confidence.",
+  title: "TayloredRoots Salon",
+  description: "Preview the look, book with confidence at TayloredRoots.",
 };
 
 export default function RootLayout({

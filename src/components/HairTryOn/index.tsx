@@ -181,19 +181,19 @@ function HairTryOn({ onBook }: HairTryOnProps) {
 
   return (
     <section id="tryon" className="space-y-10">
-      <header className="space-y-3 rounded-2xl bg-neutral-900/90 p-6 text-white shadow-lg">
+      <header className="space-y-3 rounded-2xl border border-emerald-900/20 bg-emerald-950/90 p-6 text-emerald-50 shadow-lg">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
-              Tailored Roots Preview
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-100/70">
+              TayloredRoots Preview
             </p>
             <h1 className="text-3xl font-semibold">See the look before the chair</h1>
           </div>
-          <div className="rounded-full bg-green-500/10 px-4 py-2 text-sm font-medium text-green-200">
+          <div className="rounded-full bg-emerald-200/20 px-4 py-2 text-sm font-medium text-emerald-100">
             Live preview ready
           </div>
         </div>
-        <p className="text-sm text-neutral-200">
+        <p className="text-sm text-emerald-100/80">
           Upload or pick a hairstyle reference, add your selfie, and we’ll blend the look while
           keeping your face, skin tone, and background unchanged.
         </p>
@@ -205,12 +205,12 @@ function HairTryOn({ onBook }: HairTryOnProps) {
           ].map((item) => (
             <div
               key={item.label}
-              className="rounded-xl border border-white/10 bg-white/5 p-3 text-sm"
+              className="rounded-xl border border-emerald-200/20 bg-emerald-200/10 p-3 text-sm"
             >
-              <p className="text-xs font-semibold text-neutral-300">
+              <p className="text-xs font-semibold text-emerald-100/80">
                 {item.label}
               </p>
-              <p className="text-neutral-100">{item.text}</p>
+              <p className="text-emerald-50">{item.text}</p>
             </div>
           ))}
         </div>
@@ -218,10 +218,10 @@ function HairTryOn({ onBook }: HairTryOnProps) {
 
       <form
         onSubmit={handleSubmit}
-        className="rounded-2xl border border-neutral-200/80 bg-white/80 p-6 shadow-lg backdrop-blur"
+        className="rounded-2xl border border-emerald-200/80 bg-white/80 p-6 shadow-lg backdrop-blur"
       >
         <div className="grid gap-6 lg:grid-cols-2">
-          <label className="group flex h-full flex-col gap-3 rounded-xl border border-dashed border-neutral-300 bg-white/70 p-4 transition hover:border-neutral-500">
+          <label className="group flex h-full flex-col gap-3 rounded-xl border border-dashed border-neutral-300 bg-white/70 p-4 transition hover:border-emerald-400">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
                 <p className="text-sm font-semibold text-neutral-800">
@@ -231,7 +231,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
                   Clear shot of the style you want to try on.
                 </p>
               </div>
-              <span className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">
+              <span className="rounded-full bg-emerald-900 px-3 py-1 text-xs font-medium text-white">
                 Upload
               </span>
             </div>
@@ -252,7 +252,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
             )}
           </label>
 
-          <label className="group flex h-full flex-col gap-3 rounded-xl border border-dashed border-neutral-300 bg-white/70 p-4 transition hover:border-neutral-500">
+          <label className="group flex h-full flex-col gap-3 rounded-xl border border-dashed border-neutral-300 bg-white/70 p-4 transition hover:border-emerald-400">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
                 <p className="text-sm font-semibold text-neutral-800">
@@ -262,7 +262,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
                   Front-facing, good lighting, no heavy filters.
                 </p>
               </div>
-              <span className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">
+              <span className="rounded-full bg-emerald-900 px-3 py-1 text-xs font-medium text-white">
                 Upload
               </span>
             </div>
@@ -289,7 +289,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
             <button
               type="submit"
               disabled={isLoading || !hasBothImages}
-              className="rounded-lg bg-neutral-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-lg bg-emerald-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isLoading ? "Generating..." : "Generate Try-On"}
             </button>
@@ -309,12 +309,12 @@ function HairTryOn({ onBook }: HairTryOnProps) {
       </form>
 
       {outputImage && selfieImage && (
-        <div className="space-y-4 rounded-2xl border border-neutral-200/80 bg-white/90 p-6 shadow-lg backdrop-blur">
+        <div className="space-y-4 rounded-2xl border border-emerald-200/80 bg-white/90 p-6 shadow-lg backdrop-blur">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-neutral-900">
               Before / After
             </h2>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-900/70">
               Preview
             </span>
           </div>
@@ -341,7 +341,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
                   onClick={() =>
                     onBook?.({ selfie: selfieImage, output: outputImage })
                   }
-                  className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800"
+                  className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
                 >
                   Book this look
                 </button>
@@ -356,11 +356,11 @@ function HairTryOn({ onBook }: HairTryOnProps) {
 
       <div
         id="inspiration"
-        className="space-y-3 rounded-2xl border border-neutral-200/80 bg-white/90 p-4 shadow-lg"
+        className="space-y-3 rounded-2xl border border-emerald-200/80 bg-white/90 p-4 shadow-lg"
       >
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
               Curated inspiration
             </p>
             <p className="text-sm text-neutral-700">
@@ -376,7 +376,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
               onClick={() => handleInspirationSelect(item.id, item.image)}
             className={`flex flex-col overflow-hidden rounded-xl border text-left shadow-sm transition ${
                 selectedInspirationId === item.id
-                  ? "border-neutral-900"
+                  ? "border-emerald-900"
                   : "border-neutral-200 hover:-translate-y-0.5 hover:shadow-md"
               }`}
             disabled={!!inspirationLoading}

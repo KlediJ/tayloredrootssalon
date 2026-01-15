@@ -16,53 +16,74 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-neutral-900 to-slate-800 text-white [background-image:radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.06),transparent_35%)]">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:px-12 space-y-10">
-        <header className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg sm:flex-row sm:items-center sm:justify-between">
+    <main className="min-h-screen bg-gradient-to-br from-stone-50 via-neutral-50 to-emerald-50 text-neutral-900 [background-image:radial-gradient(circle_at_top_left,rgba(20,83,45,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.12),transparent_35%)] lg:bg-stone-50 lg:from-stone-50 lg:via-stone-50 lg:to-stone-50 lg:[background-image:none]">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:max-w-[90rem] lg:px-12 space-y-10">
+        <header className="flex flex-col gap-3 rounded-2xl border border-emerald-900/10 bg-white/70 p-4 shadow-lg sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-2">
             <img
               src="/brand/logo.svg"
-              alt="Tailored Roots logo"
+              alt="TayloredRoots logo"
               className="h-12 w-auto"
             />
-            <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">
-              Preview-first salon experience.
+            <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
+              Natural light, tailored results.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <a
-              href="tel:+15551234567"
-              className="rounded-full border border-white/20 px-3 py-1 text-white transition hover:border-white/50 hover:bg-white/10"
+              href="mailto:tayloredrootssalon@yahoo.com"
+              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
             >
-              (555) 123-4567
+              tayloredrootssalon@yahoo.com
             </a>
             <a
-              href="https://maps.google.com"
-              className="rounded-full border border-white/20 px-3 py-1 text-white transition hover:border-white/50 hover:bg-white/10"
+              href="https://maps.google.com/?q=47%20Stony%20Hill%20Rd%20Bether%20CT%20Suite%201"
+              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
             >
-              123 Salon St, Suite 2
+              47 Stony Hill Rd, Bether, CT Suite 1
             </a>
-            <span className="rounded-full border border-white/20 px-3 py-1 text-white/80">
-              Hours: Tue–Sat, 10a–6p
+            <a
+              href="https://tayloredrootssalon.com"
+              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
+            >
+              TayloredRootsSalon.com
+            </a>
+            <span className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950/80">
+              Phone: TBD
+            </span>
+            <a
+              href="https://instagram.com/addictedtohair_016"
+              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
+            >
+              Instagram @addictedtohair_016
+            </a>
+            <a
+              href="https://tiktok.com/@addictedtohair.016"
+              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
+            >
+              TikTok @addictedtohair.016
+            </a>
+            <span className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950/80">
+              Hours: By appointment
             </span>
             <Link
               href="/admin"
-              className="rounded-full border border-white/20 px-3 py-1 text-white/80 transition hover:border-white/50 hover:bg-white/10"
+              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950/80 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
             >
               Admin login
             </Link>
           </div>
         </header>
 
-        <section className="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl sm:grid-cols-2">
+        <section className="grid gap-8 rounded-3xl border border-emerald-900/10 bg-white/80 p-8 shadow-2xl sm:grid-cols-2">
           <div className="space-y-5">
-            <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">
-              Tailored Roots — Hair Studio
+            <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
+              TayloredRoots — Hair Studio
             </p>
-            <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+            <h1 className="text-4xl font-semibold leading-tight text-emerald-950 sm:text-5xl">
               See the look before the chair.
             </h1>
-            <p className="text-base text-neutral-200">
+            <p className="text-base text-neutral-700">
               Upload your inspiration or pick one of ours, add your selfie, and get a
               realistic preview in seconds. Fewer surprises, faster bookings, happier
               appointments.
@@ -70,18 +91,18 @@ export default function Page() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#tryon"
-                className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-200"
+                className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
               >
                 Start your preview
               </a>
               <a
                 href="#inspiration"
-                className="rounded-lg border border-white/30 px-4 py-2 text-sm font-semibold text-white/90 transition hover:border-white/60 hover:bg-white/10"
+                className="rounded-lg border border-emerald-900/30 px-4 py-2 text-sm font-semibold text-emerald-950 transition hover:border-emerald-900/60 hover:bg-emerald-900/5"
               >
                 Browse inspiration
               </a>
             </div>
-            <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-neutral-100 sm:grid-cols-3">
+            <div className="grid gap-4 rounded-2xl border border-emerald-900/10 bg-white/70 p-6 text-sm text-neutral-900 sm:grid-cols-3">
               {[
                 {
                   label: "Precision",
@@ -98,13 +119,13 @@ export default function Page() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="space-y-1 rounded-xl border border-white/10 bg-white/5 p-4"
+                  className="space-y-1 rounded-xl border border-emerald-900/10 bg-white/80 p-4"
                 >
-                  <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+                  <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
                     {item.label}
                   </p>
-                  <p className="text-neutral-50 leading-relaxed">{item.text}</p>
-                  <p className="text-neutral-300 text-xs">
+                  <p className="text-emerald-950 leading-relaxed">{item.text}</p>
+                  <p className="text-neutral-600 text-xs">
                     {item.label === "Precision"
                       ? "Hair shape, length, texture, and color mirror the reference; face/skin/background are preserved."
                       : item.label === "Fast"
@@ -115,32 +136,32 @@ export default function Page() {
               ))}
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-800 via-neutral-900 to-black shadow-lg">
+          <div className="relative overflow-hidden rounded-2xl border border-emerald-900/10 bg-gradient-to-br from-emerald-900 via-emerald-950 to-neutral-950 shadow-lg">
             <img
               src="/hero/transformation.jpg"
-              alt="Tailored Roots transformation preview"
+              alt="TayloredRoots transformation preview"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-sm text-white">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-950/80 via-emerald-900/40 to-transparent p-4 text-sm text-emerald-50">
               <p className="font-semibold">Realistic preview, no surprises.</p>
-              <p className="text-neutral-200">
+              <p className="text-emerald-100">
                 Upload your selfie, pick a style, and see it before you book.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg">
+        <section className="rounded-2xl border border-emerald-900/10 bg-white/70 p-5 shadow-lg">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="space-y-1">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+              <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
                 What to expect
               </p>
-              <p className="text-sm text-neutral-200">
+              <p className="text-sm text-neutral-700">
                 Your selfie stays yours. Only the hair follows the reference you choose.
               </p>
             </div>
-            <div className="grid gap-3 text-sm text-neutral-200 sm:grid-cols-3 sm:gap-4">
+            <div className="grid gap-3 text-sm text-neutral-700 sm:grid-cols-3 sm:gap-4">
               {[
                 {
                   label: "Upload",
@@ -157,12 +178,12 @@ export default function Page() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-xl border border-white/10 bg-white/5 p-4"
+                  className="rounded-xl border border-emerald-900/10 bg-white/80 p-4"
                 >
-                  <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+                  <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
                     {item.label}
                   </p>
-                  <p className="text-neutral-100">{item.text}</p>
+                  <p className="text-emerald-950">{item.text}</p>
                 </div>
               ))}
             </div>
@@ -170,56 +191,62 @@ export default function Page() {
         </section>
 
         <HairTryOn onBook={handleBook} />
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+        <div className="rounded-2xl border border-emerald-900/10 bg-white/70 p-6 shadow-lg">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+              <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
                 Ready when you are
               </p>
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-2xl font-semibold text-emerald-950">
                 Lock your spot with your chosen look
               </h3>
-              <p className="text-sm text-neutral-300">
+              <p className="text-sm text-neutral-600">
                 We’ll attach your preview and notes so the stylist knows exactly what you want.
               </p>
             </div>
             <button
               onClick={() => setBookingOpen(true)}
-              className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-200"
+              className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
             >
               Open booking
             </button>
           </div>
         </div>
 
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+        <section className="rounded-2xl border border-emerald-900/10 bg-white/70 p-6 shadow-lg">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
-                Visit Tailored Roots
+              <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
+                Visit TayloredRoots
               </p>
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-2xl font-semibold text-emerald-950">
                 Your stylist, fully briefed before you arrive
               </h3>
-              <p className="text-sm text-neutral-300">
-                Preview your look, attach it to your booking, and show up confident. Call or stop by to finalize details.
+              <p className="text-sm text-neutral-600">
+                Preview your look, attach it to your booking, and show up confident. Email or stop by to finalize details.
               </p>
             </div>
-            <div className="flex flex-col gap-2 text-sm text-neutral-200">
+            <div className="flex flex-col gap-2 text-sm text-neutral-700">
               <a
-                href="tel:+15551234567"
-                className="rounded-lg border border-white/20 px-3 py-2 transition hover:border-white/50 hover:bg-white/10"
+                href="mailto:tayloredrootssalon@yahoo.com"
+                className="rounded-lg border border-emerald-900/20 px-3 py-2 transition hover:border-emerald-900/50 hover:bg-emerald-900/5"
               >
-                Call: (555) 123-4567
+                Email: tayloredrootssalon@yahoo.com
               </a>
               <a
-                href="https://maps.google.com"
-                className="rounded-lg border border-white/20 px-3 py-2 transition hover:border-white/50 hover:bg-white/10"
+                href="https://maps.google.com/?q=47%20Stony%20Hill%20Rd%20Bether%20CT%20Suite%201"
+                className="rounded-lg border border-emerald-900/20 px-3 py-2 transition hover:border-emerald-900/50 hover:bg-emerald-900/5"
               >
-                123 Salon St, Suite 2 — Get directions
+                47 Stony Hill Rd, Bether, CT Suite 1 — Get directions
               </a>
-              <span className="rounded-lg border border-white/20 px-3 py-2 text-neutral-300">
-                Hours: Tue–Sat, 10a–6p
+              <a
+                href="https://tayloredrootssalon.com"
+                className="rounded-lg border border-emerald-900/20 px-3 py-2 transition hover:border-emerald-900/50 hover:bg-emerald-900/5"
+              >
+                TayloredRootsSalon.com
+              </a>
+              <span className="rounded-lg border border-emerald-900/20 px-3 py-2 text-neutral-600">
+                Phone: TBD
               </span>
             </div>
           </div>
