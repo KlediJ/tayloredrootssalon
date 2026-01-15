@@ -2,23 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import Booking from "@/components/Booking";
-import Gallery from "@/components/Gallery";
-import HairTryOn from "@/components/HairTryOn";
 
 export default function Page() {
   const [bookingOpen, setBookingOpen] = useState(false);
-  const [selectedLook, setSelectedLook] = useState<string | null>(null);
-
-  const handleBook = (payload: { selfie: string; output: string }) => {
-    setSelectedLook(payload.output);
-    setBookingOpen(true);
-  };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-stone-50 via-neutral-50 to-emerald-50 text-neutral-900 [background-image:radial-gradient(circle_at_top_left,rgba(20,83,45,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.12),transparent_35%)] lg:bg-stone-50 lg:from-stone-50 lg:via-stone-50 lg:to-stone-50 lg:[background-image:none]">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:max-w-[90rem] lg:px-12 space-y-10">
-        <header className="flex flex-col gap-3 rounded-2xl border border-emerald-900/10 bg-white/70 p-4 shadow-lg sm:flex-row sm:items-center sm:justify-between">
+    <main className="min-h-screen bg-gradient-to-br from-stone-50 via-neutral-50 to-emerald-50 text-neutral-900 lg:bg-stone-50 lg:from-stone-50 lg:via-stone-50 lg:to-stone-50 lg:[background-image:none]">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:max-w-[90rem] lg:px-12 space-y-12">
+        <header className="flex flex-col gap-4 rounded-2xl border border-emerald-900/10 bg-white/75 p-4 shadow-lg lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col gap-2">
             <img
               src="/brand/logo.svg"
@@ -100,66 +93,127 @@ export default function Page() {
             >
               Admin login
             </Link>
+            <button
+              onClick={() => setBookingOpen(true)}
+              className="hidden lg:inline-flex items-center rounded-full bg-emerald-900 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-emerald-800"
+            >
+              Book now
+            </button>
           </div>
         </header>
 
-        <section className="grid gap-8 rounded-3xl border border-emerald-900/10 bg-white/80 p-8 shadow-2xl sm:grid-cols-2">
-          <div className="space-y-5">
+        <section className="rounded-3xl border border-emerald-900/10 bg-white/80 p-8 shadow-lg">
+          <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
+          <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
+          <div className="mx-auto max-w-4xl text-center space-y-3">
             <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
-              TayloredRoots — Hair Studio
+              Social proof
             </p>
-            <h1 className="text-4xl font-semibold leading-tight text-emerald-950 sm:text-5xl">
-              See the look before the chair.
-            </h1>
-            <p className="text-base text-neutral-700">
-              Upload your inspiration or pick one of ours, add your selfie, and get a
-              realistic preview in seconds. Fewer surprises, faster bookings, happier
-              appointments.
+            <h2 className="text-3xl font-semibold text-emerald-950">
+              Real clients, real transformations.
+            </h2>
+            <p className="text-sm text-neutral-600">
+              Fresh work pulled directly from Instagram and TikTok.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               <a
-                href="#tryon"
-                className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
+                href="https://instagram.com/addictedtohair_016"
+                className="rounded-full border border-emerald-900/30 px-4 py-2 text-xs font-semibold text-emerald-950 transition hover:border-emerald-900/60 hover:bg-emerald-900/5"
               >
-                Start your preview
+                Instagram
               </a>
               <a
-                href="#inspiration"
-                className="rounded-lg border border-emerald-900/30 px-4 py-2 text-sm font-semibold text-emerald-950 transition hover:border-emerald-900/60 hover:bg-emerald-900/5"
+                href="https://tiktok.com/@addictedtohair.016"
+                className="rounded-full border border-emerald-900/30 px-4 py-2 text-xs font-semibold text-emerald-950 transition hover:border-emerald-900/60 hover:bg-emerald-900/5"
               >
-                Browse inspiration
+                TikTok
               </a>
             </div>
-            <div className="grid gap-4 rounded-2xl border border-emerald-900/10 bg-white/70 p-6 text-sm text-neutral-900 sm:grid-cols-3">
+          </div>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            {[
+              "https://www.instagram.com/p/DFeSPosgg5c/",
+              "https://www.instagram.com/p/DEfS2BOgT9F/",
+              "https://www.instagram.com/p/DDlXc7dAZh-/",
+              "https://www.instagram.com/p/C6rpEyUA2qh/",
+            ].map((url) => (
+              <blockquote
+                key={url}
+                className="instagram-media w-full rounded-2xl border border-emerald-900/10 bg-white p-2 shadow-sm"
+                data-instgrm-permalink={url}
+                data-instgrm-captioned="false"
+              >
+                <a href={url}>View this post on Instagram</a>
+              </blockquote>
+            ))}
+            {[
+              "https://www.tiktok.com/@addictedtohair.016/video/7527852346248891679",
+              "https://www.tiktok.com/@addictedtohair.016/video/7464726427225623838",
+              "https://www.tiktok.com/@addictedtohair.016/video/7138599512192437546",
+              "https://www.tiktok.com/@addictedtohair.016/video/7366366860893326634",
+              "https://www.tiktok.com/@addictedtohair.016/video/7380164189521808683",
+            ].map((url) => (
+              <blockquote
+                key={url}
+                className="tiktok-embed w-full rounded-2xl border border-emerald-900/10 bg-white p-2 shadow-sm"
+                cite={url}
+                data-video-id={url.split("/").pop()}
+              >
+                <a href={url}>Watch on TikTok</a>
+              </blockquote>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-8 rounded-3xl border border-emerald-900/10 bg-white/85 p-8 shadow-2xl lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-6">
+            <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
+              TayloredRoots Salon
+            </p>
+            <h1 className="text-4xl font-semibold leading-tight text-emerald-950 sm:text-5xl lg:text-6xl">
+              Show up confident. See it before you commit.
+            </h1>
+            <p className="text-base text-neutral-700 lg:text-lg">
+              A consultation-first studio focused on healthy hair, lived-in color, and
+              realistic previews so you leave with exactly what you envisioned.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/preview"
+                className="rounded-lg bg-emerald-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
+              >
+                Try the preview
+              </Link>
+              <button
+                onClick={() => setBookingOpen(true)}
+                className="rounded-lg border border-emerald-900/30 px-5 py-3 text-sm font-semibold text-emerald-950 transition hover:border-emerald-900/60 hover:bg-emerald-900/5"
+              >
+                Book now
+              </button>
+            </div>
+            <div className="grid gap-4 rounded-2xl border border-emerald-900/10 bg-white/80 p-6 text-sm text-neutral-900 sm:grid-cols-3">
               {[
                 {
-                  label: "Precision",
-                  text: "Face stays you; only the hair follows the reference.",
+                  label: "Consultation-first",
+                  text: "We start with your goals, hair history, and maintenance comfort.",
                 },
                 {
-                  label: "Fast",
-                  text: "Upload, preview, and book in a single flow.",
+                  label: "Natural light studio",
+                  text: "Every color decision is checked in bright, honest light.",
                 },
                 {
-                  label: "Stylist-ready",
-                  text: "Send your preview with the booking so expectations align.",
+                  label: "Bring inspiration",
+                  text: "Photos welcome. We translate them to your texture and tone.",
                 },
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="space-y-1 rounded-xl border border-emerald-900/10 bg-white/80 p-4"
+                  className="space-y-2 rounded-xl border border-emerald-900/10 bg-white/80 p-4"
                 >
                   <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
                     {item.label}
                   </p>
                   <p className="text-emerald-950 leading-relaxed">{item.text}</p>
-                  <p className="text-neutral-600 text-xs">
-                    {item.label === "Precision"
-                      ? "Hair shape, length, texture, and color mirror the reference; face/skin/background are preserved."
-                      : item.label === "Fast"
-                        ? "Takes seconds to upload and preview, so you can decide quickly."
-                        : "Your stylist sees the target look before you arrive, reducing revisions."}
-                  </p>
                 </div>
               ))}
             </div>
@@ -171,108 +225,111 @@ export default function Page() {
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-950/80 via-emerald-900/40 to-transparent p-4 text-sm text-emerald-50">
-              <p className="font-semibold">Realistic preview, no surprises.</p>
+              <p className="font-semibold">No surprises, just aligned expectations.</p>
               <p className="text-emerald-100">
-                Upload your selfie, pick a style, and see it before you book.
+                A calm, private studio where your look is designed with you.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="rounded-2xl border border-emerald-900/10 bg-white/70 p-5 shadow-lg">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="space-y-1">
-              <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
-                What to expect
-              </p>
-              <p className="text-sm text-neutral-700">
-                Your selfie stays yours. Only the hair follows the reference you choose.
-              </p>
+        <section className="grid gap-6 rounded-3xl border border-emerald-900/10 bg-white/80 p-8 shadow-lg lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="space-y-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
+              The studio experience
+            </p>
+            <h2 className="text-3xl font-semibold text-emerald-950">
+              Modern techniques with a personal touch.
+            </h2>
+            <p className="text-sm text-neutral-600">
+              Each appointment is paced, intentional, and focused on the health of your
+              hair. We build a plan that fits your schedule and keeps your color looking
+              fresh between visits.
+            </p>
+            <div className="grid gap-3 text-sm text-neutral-700 sm:grid-cols-2">
+              <div className="rounded-xl border border-emerald-900/10 bg-white p-4">
+                Dimensional color + glossing
+              </div>
+              <div className="rounded-xl border border-emerald-900/10 bg-white p-4">
+                Silk press + protective styling
+              </div>
+              <div className="rounded-xl border border-emerald-900/10 bg-white p-4">
+                Custom cuts + shaping
+              </div>
+              <div className="rounded-xl border border-emerald-900/10 bg-white p-4">
+                Treatment-led maintenance plans
+              </div>
             </div>
-            <div className="grid gap-3 text-sm text-neutral-700 sm:grid-cols-3 sm:gap-4">
-              {[
-                {
-                  label: "Upload",
-                  text: "Clear selfie + style reference or a curated look.",
-                },
-                {
-                  label: "Preview",
-                  text: "Hair-only change; face/skin/background remain.",
-                },
-                {
-                  label: "Share",
-                  text: "Attach your preview when you book.",
-                },
-              ].map((item) => (
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {["/lookbook/lived-in-brunette.jpg", "/lookbook/dimensional-blonde.jpg", "/lookbook/copper-glow.jpg", "/lookbook/silk-press.jpg"].map(
+              (src) => (
                 <div
-                  key={item.label}
-                  className="rounded-xl border border-emerald-900/10 bg-white/80 p-4"
+                  key={src}
+                  className="overflow-hidden rounded-2xl border border-emerald-900/10 bg-white shadow-sm"
                 >
-                  <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
-                    {item.label}
-                  </p>
-                  <p className="text-emerald-950">{item.text}</p>
+                  <img
+                    src={src}
+                    alt="TayloredRoots work"
+                    className="h-48 w-full object-cover"
+                  />
                 </div>
-              ))}
-            </div>
+              ),
+            )}
           </div>
         </section>
 
-        <HairTryOn onBook={handleBook} />
-        <div className="rounded-2xl border border-emerald-900/10 bg-white/70 p-6 shadow-lg">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
-                Ready when you are
-              </p>
-              <h3 className="text-2xl font-semibold text-emerald-950">
-                Lock your spot with your chosen look
-              </h3>
-              <p className="text-sm text-neutral-600">
-                We’ll attach your preview and notes so the stylist knows exactly what you want.
-              </p>
-            </div>
-            <button
-              onClick={() => setBookingOpen(true)}
-              className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
-            >
-              Open booking
-            </button>
-          </div>
-        </div>
-
-        <section className="rounded-2xl border border-emerald-900/10 bg-white/70 p-6 shadow-lg">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
+        <section className="rounded-3xl border border-emerald-900/10 bg-white/80 p-8 shadow-lg">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="space-y-3">
+              <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
                 Visit TayloredRoots
               </p>
-              <h3 className="text-2xl font-semibold text-emerald-950">
-                Your stylist, fully briefed before you arrive
-              </h3>
+              <h2 className="text-3xl font-semibold text-emerald-950">
+                A private, calming studio in Bethel.
+              </h2>
               <p className="text-sm text-neutral-600">
-                Preview your look, attach it to your booking, and show up confident. Email or stop by to finalize details.
+                Email us to plan your visit. We confirm every appointment personally.
               </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="mailto:tayloredrootssalon@yahoo.com"
+                  className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
+                >
+                  Email to book
+                </a>
+                <button
+                  onClick={() => setBookingOpen(true)}
+                  className="rounded-lg border border-emerald-900/30 px-4 py-2 text-sm font-semibold text-emerald-950 transition hover:border-emerald-900/60 hover:bg-emerald-900/5"
+                >
+                  Book now
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col gap-2 text-sm text-neutral-700">
-              <div className="rounded-lg border border-emerald-900/20 px-3 py-2">
-                Bring inspiration photos and a quick hair history.
+            <div className="grid gap-3 text-sm text-neutral-700">
+              <div className="rounded-xl border border-emerald-900/10 bg-white p-4">
+                47 Stony Hill Rd, Bethel, CT Suite 1
               </div>
-              <div className="rounded-lg border border-emerald-900/20 px-3 py-2">
-                Appointments are confirmed by email after review.
+              <div className="rounded-xl border border-emerald-900/10 bg-white p-4">
+                Hours: By appointment
               </div>
-              <div className="rounded-lg border border-emerald-900/20 px-3 py-2">
-                Natural light studio with a calm, private feel.
+              <div className="rounded-xl border border-emerald-900/10 bg-white p-4">
+                Natural light studio, calm private setting.
               </div>
             </div>
           </div>
         </section>
       </div>
-      <Booking
-        open={bookingOpen}
-        onClose={() => setBookingOpen(false)}
-        selectedLook={selectedLook}
-      />
+
+      <button
+        type="button"
+        onClick={() => setBookingOpen(true)}
+        className="fixed inset-x-4 bottom-4 z-40 rounded-full bg-emerald-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-900/30 transition hover:bg-emerald-800 sm:hidden"
+      >
+        Book now
+      </button>
+
+      <Booking open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </main>
   );
 }
