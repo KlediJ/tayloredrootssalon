@@ -104,6 +104,63 @@ function HairTryOn({ onBook }: HairTryOnProps) {
     },
     { id: "silk-press", title: "Silk Press", image: "/lookbook/silk-press.jpg" },
   ];
+  const steps = [
+    {
+      label: "Step 1",
+      text: "Upload hairstyle reference",
+      icon: (
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="h-4 w-4 text-emerald-700"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        >
+          <path d="M12 4v10" />
+          <path d="m8 8 4-4 4 4" />
+          <rect x="4" y="14" width="16" height="6" rx="2" />
+        </svg>
+      ),
+    },
+    {
+      label: "Step 2",
+      text: "Upload your selfie",
+      icon: (
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="h-4 w-4 text-emerald-700"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        >
+          <circle cx="12" cy="9" r="3.5" />
+          <path d="M5 19c1.6-3 4.2-4.5 7-4.5s5.4 1.5 7 4.5" />
+          <rect x="4" y="4" width="16" height="16" rx="3" />
+        </svg>
+      ),
+    },
+    {
+      label: "Step 3",
+      text: "Generate & compare",
+      icon: (
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="h-4 w-4 text-emerald-700"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        >
+          <path d="M6 8h7a3 3 0 0 1 0 6H9" />
+          <path d="m10 6-2 2 2 2" />
+          <path d="M18 16h-7a3 3 0 0 1 0-6h4" />
+          <path d="m14 18 2-2-2-2" />
+        </svg>
+      ),
+    },
+  ];
 
   const handleFileChange = useCallback(
     async (event: ChangeEvent<HTMLInputElement>, type: "model" | "selfie") => {
@@ -197,24 +254,38 @@ function HairTryOn({ onBook }: HairTryOnProps) {
           Upload or pick a hairstyle reference, add your selfie, and we’ll blend the look while
           keeping your face, skin tone, and background unchanged.
         </p>
-        <div className="grid gap-3 sm:grid-cols-3">
-          {[
-            { label: "Step 1", text: "Upload hairstyle reference" },
-            { label: "Step 2", text: "Upload your selfie" },
-            { label: "Step 3", text: "Generate & compare" },
-          ].map((item) => (
+      </header>
+
+      <div className="rounded-2xl border border-emerald-200/80 bg-white/90 p-4 shadow-lg backdrop-blur">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
+              How it works
+            </p>
+            <p className="text-sm text-neutral-600">
+              Follow these three steps in order before generating your preview.
+            </p>
+          </div>
+        </div>
+        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+          {steps.map((item) => (
             <div
               key={item.label}
-              className="rounded-xl border border-emerald-200/20 bg-emerald-200/10 p-3 text-sm"
+              className="flex items-center gap-3 rounded-xl border border-emerald-100 bg-white p-3 text-sm shadow-sm"
             >
-              <p className="text-xs font-semibold text-emerald-100/80">
-                {item.label}
-              </p>
-              <p className="text-emerald-50">{item.text}</p>
+              <span className="rounded-full bg-emerald-100 p-2">
+                {item.icon}
+              </span>
+              <div>
+                <p className="text-xs font-semibold text-emerald-900/70">
+                  {item.label}
+                </p>
+                <p className="text-emerald-950">{item.text}</p>
+              </div>
             </div>
           ))}
         </div>
-      </header>
+      </div>
 
       <form
         onSubmit={handleSubmit}

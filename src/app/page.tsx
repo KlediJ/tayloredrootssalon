@@ -32,36 +32,64 @@ export default function Page() {
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <a
               href="mailto:tayloredrootssalon@yahoo.com"
-              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
             >
-              tayloredrootssalon@yahoo.com
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-4 w-4 text-emerald-900/70"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              >
+                <path d="M4 6h16v12H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+              Email
             </a>
             <a
-              href="https://maps.google.com/?q=47%20Stony%20Hill%20Rd%20Bether%20CT%20Suite%201"
+              href="https://maps.google.com/?q=47%20Stony%20Hill%20Rd%20Bethel%20CT%20Suite%201"
               className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
             >
-              47 Stony Hill Rd, Bether, CT Suite 1
-            </a>
-            <a
-              href="https://tayloredrootssalon.com"
-              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
-            >
-              TayloredRootsSalon.com
+              47 Stony Hill Rd, Bethel, CT Suite 1
             </a>
             <span className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950/80">
               Phone: TBD
             </span>
             <a
               href="https://instagram.com/addictedtohair_016"
-              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
             >
-              Instagram @addictedtohair_016
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-4 w-4 text-emerald-900/70"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              >
+                <rect x="5" y="5" width="14" height="14" rx="4" />
+                <circle cx="12" cy="12" r="3.5" />
+                <circle cx="16.5" cy="7.5" r="1" />
+              </svg>
+              Instagram
             </a>
             <a
               href="https://tiktok.com/@addictedtohair.016"
-              className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950 transition hover:border-emerald-900/40 hover:bg-emerald-900/5"
             >
-              TikTok @addictedtohair.016
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-4 w-4 text-emerald-900/70"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              >
+                <path d="M14 5v9.5a3.5 3.5 0 1 1-3-3.46" />
+                <path d="M14 7.5c1.2 1.4 2.8 2.3 4.5 2.5" />
+              </svg>
+              TikTok
             </a>
             <span className="rounded-full border border-emerald-900/20 px-3 py-1 text-emerald-950/80">
               Hours: By appointment
@@ -227,27 +255,15 @@ export default function Page() {
               </p>
             </div>
             <div className="flex flex-col gap-2 text-sm text-neutral-700">
-              <a
-                href="mailto:tayloredrootssalon@yahoo.com"
-                className="rounded-lg border border-emerald-900/20 px-3 py-2 transition hover:border-emerald-900/50 hover:bg-emerald-900/5"
-              >
-                Email: tayloredrootssalon@yahoo.com
-              </a>
-              <a
-                href="https://maps.google.com/?q=47%20Stony%20Hill%20Rd%20Bether%20CT%20Suite%201"
-                className="rounded-lg border border-emerald-900/20 px-3 py-2 transition hover:border-emerald-900/50 hover:bg-emerald-900/5"
-              >
-                47 Stony Hill Rd, Bether, CT Suite 1 — Get directions
-              </a>
-              <a
-                href="https://tayloredrootssalon.com"
-                className="rounded-lg border border-emerald-900/20 px-3 py-2 transition hover:border-emerald-900/50 hover:bg-emerald-900/5"
-              >
-                TayloredRootsSalon.com
-              </a>
-              <span className="rounded-lg border border-emerald-900/20 px-3 py-2 text-neutral-600">
-                Phone: TBD
-              </span>
+              <div className="rounded-lg border border-emerald-900/20 px-3 py-2">
+                Bring inspiration photos and a quick hair history.
+              </div>
+              <div className="rounded-lg border border-emerald-900/20 px-3 py-2">
+                Appointments are confirmed by email after review.
+              </div>
+              <div className="rounded-lg border border-emerald-900/20 px-3 py-2">
+                Natural light studio with a calm, private feel.
+              </div>
             </div>
           </div>
         </section>
