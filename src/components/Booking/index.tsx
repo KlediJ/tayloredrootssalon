@@ -155,7 +155,7 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <div className="w-full max-w-2xl rounded-2xl border border-emerald-900/10 bg-stone-50 p-6 text-neutral-900 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div className="w-full max-w-2xl rounded-2xl border border-emerald-900/10 bg-emerald-50 p-6 text-neutral-900 shadow-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
@@ -241,7 +241,7 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
                         onClick={() => handleSlotSelect(slot)}
                         className={`rounded-lg border px-3 py-2 text-left text-sm transition ${
                           selectedSlot === slot.start
-                            ? "border-emerald-900 bg-emerald-900 text-white"
+                            ? "border-emerald-700 bg-emerald-700 text-white"
                             : "border-neutral-300 bg-white text-neutral-700 hover:border-emerald-400"
                         }`}
                       >
@@ -322,7 +322,7 @@ function Booking({ open, onClose, selectedLook }: BookingProps) {
             <button
               type="submit"
               disabled={submitting}
-              className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
+              className="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
             >
               {submitting ? "Sending..." : "Send request"}
             </button>

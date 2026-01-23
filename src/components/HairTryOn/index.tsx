@@ -106,13 +106,13 @@ function HairTryOn({ onBook }: HairTryOnProps) {
   ];
   const steps = [
     {
-      label: "Step 1",
-      text: "Upload hairstyle reference",
+      label: "Reference",
+      text: "Choose a look or upload your own.",
       icon: (
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"
-          className="h-4 w-4 text-emerald-700"
+          className="h-5 w-5 text-emerald-600"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.6"
@@ -124,13 +124,13 @@ function HairTryOn({ onBook }: HairTryOnProps) {
       ),
     },
     {
-      label: "Step 2",
-      text: "Upload your selfie",
+      label: "Selfie",
+      text: "Front-facing, natural light.",
       icon: (
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"
-          className="h-4 w-4 text-emerald-700"
+          className="h-5 w-5 text-emerald-600"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.6"
@@ -142,13 +142,13 @@ function HairTryOn({ onBook }: HairTryOnProps) {
       ),
     },
     {
-      label: "Step 3",
-      text: "Generate & compare",
+      label: "Preview",
+      text: "Generate and compare side-by-side.",
       icon: (
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"
-          className="h-4 w-4 text-emerald-700"
+          className="h-5 w-5 text-emerald-600"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.6"
@@ -244,7 +244,9 @@ function HairTryOn({ onBook }: HairTryOnProps) {
             <p className="text-xs uppercase tracking-[0.2em] text-emerald-100/70">
               TayloredRoots Preview
             </p>
-            <h1 className="text-3xl font-semibold">See the look before the chair</h1>
+            <h1 className="font-display text-3xl font-semibold">
+              See the look before the chair
+            </h1>
           </div>
           <div className="rounded-full bg-emerald-200/20 px-4 py-2 text-sm font-medium text-emerald-100">
             Live preview ready
@@ -256,17 +258,17 @@ function HairTryOn({ onBook }: HairTryOnProps) {
         </p>
       </header>
 
-      <div className="rounded-2xl border border-emerald-200/80 bg-white/90 p-4 shadow-lg backdrop-blur">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
-              How it works
-            </p>
-            <p className="text-sm text-neutral-600">
-              Follow these three steps in order before generating your preview.
-            </p>
-          </div>
-        </div>
+      <details className="rounded-2xl border border-emerald-200/80 bg-white/90 p-4 shadow-lg backdrop-blur">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-emerald-950">
+          <span>How the preview works</span>
+          <span className="text-xs font-semibold text-emerald-900/70">
+            Tap to expand
+          </span>
+        </summary>
+        <p className="mt-3 text-sm text-neutral-600">
+          The preview keeps your face and background intact while we mirror the
+          reference style on your hair.
+        </p>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
           {steps.map((item) => (
             <div
@@ -285,6 +287,57 @@ function HairTryOn({ onBook }: HairTryOnProps) {
             </div>
           ))}
         </div>
+      </details>
+
+      <div
+        id="inspiration"
+        className="space-y-3 rounded-2xl border border-emerald-200/80 bg-white/90 p-4 shadow-lg"
+      >
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
+              Choose a reference
+            </p>
+            <p className="text-sm text-neutral-700">
+              Pick a look below or upload your own image.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {inspirations.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => handleInspirationSelect(item.id, item.image)}
+              className={`flex flex-col overflow-hidden rounded-xl border text-left shadow-sm transition ${
+                selectedInspirationId === item.id
+                  ? "border-emerald-900 ring-2 ring-emerald-200"
+                  : "border-neutral-200 hover:-translate-y-0.5 hover:shadow-md"
+              }`}
+              disabled={!!inspirationLoading}
+            >
+              <div className="relative h-56 w-full bg-neutral-200">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="p-3">
+                <p className="text-sm font-semibold text-neutral-900">
+                  {item.title}
+                </p>
+                <p className="text-xs text-neutral-600">
+                  {inspirationLoading === item.id
+                    ? "Loading..."
+                    : selectedInspirationId === item.id
+                      ? "Selected"
+                      : "Use this look"}
+                </p>
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
 
       <form
@@ -293,24 +346,27 @@ function HairTryOn({ onBook }: HairTryOnProps) {
       >
         <div className="grid gap-6 lg:grid-cols-2">
           <label className="group flex h-full flex-col gap-3 rounded-xl border border-dashed border-neutral-300 bg-white/70 p-4 transition hover:border-emerald-400">
-            <div className="flex items-center justify-between">
-              <div className="space-y-1">
-                <p className="text-sm font-semibold text-neutral-800">
-                  Hairstyle reference (upload or pick below)
-                </p>
-                <p className="text-xs text-neutral-600">
-                  Clear shot of the style you want to try on.
-                </p>
-              </div>
-              <span className="rounded-full bg-emerald-900 px-3 py-1 text-xs font-medium text-white">
-                Upload
+            <div className="space-y-1">
+              <p className="text-sm font-semibold text-neutral-800">
+                Reference image
+              </p>
+              <p className="text-xs text-neutral-600">
+                Use a lookbook image or upload your own.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-lg bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-sm">
+                Upload reference
+              </span>
+              <span className="text-xs text-neutral-500">
+                Click or drop an image
               </span>
             </div>
             <input
               type="file"
               accept="image/*"
               onChange={(event) => handleFileChange(event, "model")}
-              className="text-sm"
+              className="sr-only"
             />
             {modelImage && (
               <div className="overflow-hidden rounded-lg border border-neutral-200 shadow-sm">
@@ -324,24 +380,25 @@ function HairTryOn({ onBook }: HairTryOnProps) {
           </label>
 
           <label className="group flex h-full flex-col gap-3 rounded-xl border border-dashed border-neutral-300 bg-white/70 p-4 transition hover:border-emerald-400">
-            <div className="flex items-center justify-between">
-              <div className="space-y-1">
-                <p className="text-sm font-semibold text-neutral-800">
-                  Your selfie
-                </p>
-                <p className="text-xs text-neutral-600">
-                  Front-facing, good lighting, no heavy filters.
-                </p>
-              </div>
-              <span className="rounded-full bg-emerald-900 px-3 py-1 text-xs font-medium text-white">
-                Upload
+            <div className="space-y-1">
+              <p className="text-sm font-semibold text-neutral-800">Your selfie</p>
+              <p className="text-xs text-neutral-600">
+                Front-facing, natural light, no heavy filters.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-lg bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-sm">
+                Upload selfie
+              </span>
+              <span className="text-xs text-neutral-500">
+                Click or drop an image
               </span>
             </div>
             <input
               type="file"
               accept="image/*"
               onChange={(event) => handleFileChange(event, "selfie")}
-              className="text-sm"
+              className="sr-only"
             />
             {selfieImage && (
               <div className="overflow-hidden rounded-lg border border-neutral-200 shadow-sm">
@@ -360,7 +417,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
             <button
               type="submit"
               disabled={isLoading || !hasBothImages}
-              className="rounded-lg bg-emerald-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-lg bg-emerald-700 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isLoading ? "Generating..." : "Generate Try-On"}
             </button>
@@ -382,7 +439,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
       {outputImage && selfieImage && (
         <div className="space-y-4 rounded-2xl border border-emerald-200/80 bg-white/90 p-6 shadow-lg backdrop-blur">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-neutral-900">
+            <h2 className="font-display text-xl font-semibold text-neutral-900">
               Before / After
             </h2>
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-900/70">
@@ -412,7 +469,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
                   onClick={() =>
                     onBook?.({ selfie: selfieImage, output: outputImage })
                   }
-                  className="rounded-lg bg-emerald-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
+                  className="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
                 >
                   Book this look
                 </button>
@@ -425,54 +482,6 @@ function HairTryOn({ onBook }: HairTryOnProps) {
         </div>
       )}
 
-      <div
-        id="inspiration"
-        className="space-y-3 rounded-2xl border border-emerald-200/80 bg-white/90 p-4 shadow-lg"
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-emerald-900/70">
-              Curated inspiration
-            </p>
-            <p className="text-sm text-neutral-700">
-              Or pick a house look as your hairstyle reference.
-            </p>
-          </div>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {inspirations.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => handleInspirationSelect(item.id, item.image)}
-            className={`flex flex-col overflow-hidden rounded-xl border text-left shadow-sm transition ${
-                selectedInspirationId === item.id
-                  ? "border-emerald-900"
-                  : "border-neutral-200 hover:-translate-y-0.5 hover:shadow-md"
-              }`}
-            disabled={!!inspirationLoading}
-          >
-              <div className="relative h-56 w-full bg-neutral-200">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="p-3">
-                <p className="text-sm font-semibold text-neutral-900">
-                  {item.title}
-                </p>
-                <p className="text-xs text-neutral-600">
-                  {inspirationLoading === item.id
-                    ? "Loading..."
-                    : "Use this look"}
-                </p>
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

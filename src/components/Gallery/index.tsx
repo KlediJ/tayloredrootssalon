@@ -93,7 +93,7 @@ function Gallery() {
               onClick={() => setActive(filter.value)}
               className={`rounded-full border px-3 py-2 text-xs font-semibold transition ${
                 active === filter.value
-                  ? "border-emerald-900 bg-emerald-900 text-white"
+                  ? "border-emerald-700 bg-emerald-700 text-white"
                   : "border-neutral-300 bg-white text-neutral-700 hover:border-emerald-400"
               }`}
             >
@@ -123,7 +123,7 @@ function Gallery() {
                 <h3 className="text-base font-semibold text-neutral-900">
                   {look.title}
                 </h3>
-                <span className="rounded-full bg-emerald-900 px-2.5 py-1 text-[11px] font-semibold text-white">
+                <span className="rounded-full bg-emerald-700 px-2.5 py-1 text-[11px] font-semibold text-white">
                   {look.category}
                 </span>
               </div>
