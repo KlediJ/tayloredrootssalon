@@ -2,22 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import SquareButton from "@/components/SquareButton";
 
 type SiteHeaderProps = {
   onBook?: () => void;
-  showAdmin?: boolean;
 };
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Preview", href: "/preview" },
-  { label: "Social", href: "/social" },
-  { label: "Contact", href: "/contact" },
 ];
 
-export default function SiteHeader({ onBook, showAdmin }: SiteHeaderProps) {
+export default function SiteHeader({ onBook }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -25,11 +21,11 @@ export default function SiteHeader({ onBook, showAdmin }: SiteHeaderProps) {
       <div className="flex flex-col gap-2">
         <img
           src="/brand/logo.svg"
-          alt="TayloredRoots logo"
+          alt="Taylored Roots Salon logo"
           className="h-12 w-auto"
         />
         <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
-          Natural light, tailored results.
+          Taylored Roots Salon
         </p>
       </div>
       <div className="flex items-center justify-between gap-3 md:hidden">
@@ -50,15 +46,7 @@ export default function SiteHeader({ onBook, showAdmin }: SiteHeaderProps) {
             <path d="M5 7h14M5 12h14M5 17h14" />
           </svg>
         </button>
-        {onBook ? (
-          <button
-            type="button"
-            onClick={onBook}
-            className="rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
-          >
-            Book now
-          </button>
-        ) : null}
+        {onBook ? <SquareButton className="shrink-0" /> : null}
       </div>
       {menuOpen ? (
         <nav className="flex flex-col gap-2 md:hidden">
@@ -71,14 +59,12 @@ export default function SiteHeader({ onBook, showAdmin }: SiteHeaderProps) {
               {item.label}
             </Link>
           ))}
-          {showAdmin ? (
-            <Link
-              href="/admin"
-              className="rounded-xl border border-emerald-700/20 px-4 py-3 text-sm font-semibold text-emerald-950 transition hover:border-emerald-700/40 hover:bg-emerald-700/10"
-            >
-              Admin
-            </Link>
-          ) : null}
+          <a
+            href="tel:4752371142"
+            className="rounded-xl border border-emerald-700/30 px-4 py-3 text-sm font-semibold text-emerald-950 transition hover:border-emerald-700/60 hover:bg-emerald-700/10"
+          >
+            Call us now
+          </a>
         </nav>
       ) : null}
       <nav className="hidden flex-wrap items-center gap-3 text-lg md:flex">
@@ -91,23 +77,13 @@ export default function SiteHeader({ onBook, showAdmin }: SiteHeaderProps) {
             {item.label}
           </Link>
         ))}
-        {showAdmin ? (
-          <Link
-            href="/admin"
-            className="rounded-full border border-emerald-700/20 px-4 py-2 text-lg font-semibold text-emerald-950 transition hover:border-emerald-700/40 hover:bg-emerald-700/10"
-          >
-            Admin
-          </Link>
-        ) : null}
-        {onBook ? (
-          <button
-            type="button"
-            onClick={onBook}
-            className="rounded-full bg-emerald-700 px-5 py-2 text-lg font-semibold text-white shadow-sm transition hover:bg-emerald-600"
-          >
-            Book now
-          </button>
-        ) : null}
+        <a
+          href="tel:4752371142"
+          className="rounded-full border border-emerald-700/30 px-5 py-2 text-lg font-semibold text-emerald-950 transition hover:border-emerald-700/60 hover:bg-emerald-700/10"
+        >
+          Call us now
+        </a>
+        {onBook ? <SquareButton className="shrink-0" /> : null}
       </nav>
     </header>
   );

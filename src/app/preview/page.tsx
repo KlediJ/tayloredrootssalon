@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { notFound } from "next/navigation";
 import Booking from "@/components/Booking";
 import HairTryOn from "@/components/HairTryOn";
 import SiteHeader from "@/components/SiteHeader";
+import SquareButton from "@/components/SquareButton";
 
 export default function PreviewPage() {
+  const previewEnabled = false;
+  if (!previewEnabled) {
+    notFound();
+  }
+
   const [bookingOpen, setBookingOpen] = useState(false);
   const [selectedLook, setSelectedLook] = useState<string | null>(null);
 
@@ -17,7 +24,7 @@ export default function PreviewPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-emerald-50 via-lime-50 to-green-100 text-neutral-900 lg:bg-emerald-50 lg:from-emerald-50 lg:via-emerald-50 lg:to-emerald-50 lg:[background-image:none]">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-8 lg:max-w-[80rem] lg:px-12 space-y-10">
-        <SiteHeader onBook={() => setBookingOpen(true)} showAdmin />
+        <SiteHeader onBook={() => setBookingOpen(true)} />
 
         <section className="rounded-3xl border border-emerald-900/10 bg-white/80 p-6 shadow-lg">
           <p className="text-xs uppercase tracking-[0.25em] text-emerald-900/70">
@@ -34,13 +41,7 @@ export default function PreviewPage() {
         <HairTryOn onBook={handleBook} />
       </div>
 
-      <button
-        type="button"
-        onClick={() => setBookingOpen(true)}
-        className="fixed inset-x-4 bottom-4 z-40 rounded-full bg-emerald-700 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-600 sm:hidden"
-      >
-        Book now
-      </button>
+      <SquareButton className="fixed inset-x-4 bottom-4 z-40 text-center shadow-lg shadow-emerald-700/30 sm:hidden" />
 
       <Booking
         open={bookingOpen}

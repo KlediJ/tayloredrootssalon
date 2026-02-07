@@ -19,8 +19,8 @@ const displayFont = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "TayloredRoots Salon",
-  description: "Preview the look, book with confidence at TayloredRoots.",
+  title: "Taylored Roots Salon",
+  description: "Preview the look, book with confidence at Taylored Roots Salon.",
 };
 
 export default function RootLayout({

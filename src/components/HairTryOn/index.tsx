@@ -242,7 +242,7 @@ function HairTryOn({ onBook }: HairTryOnProps) {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-emerald-100/70">
-              TayloredRoots Preview
+              Taylored Roots Salon Preview
             </p>
             <h1 className="font-display text-3xl font-semibold">
               See the look before the chair
